@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FIFA2018Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Equipo">
+    <Key>
+      <PropertyRef Name="idEquipo" />
+    </Key>
+    <Property Name="idEquipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Grupo" Type="nvarchar" MaxLength="50" />
+    <Property Name="nombreEquipo" Type="nvarchar" MaxLength="50" />
+    <Property Name="nombreIngles" Type="nvarchar" MaxLength="50" />
+    <Property Name="copasGanadas" Type="int" />
+    <Property Name="DirectorTecnico" Type="nvarchar" MaxLength="50" />
+    <Property Name="NacionalidadTec" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Estadios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="nombreEstadio" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sede" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="capacidad" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jugadores">
+    <Key>
+      <PropertyRef Name="idJugador" />
+    </Key>
+    <Property Name="idJugador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idEquipo" Type="int" Nullable="false" />
+    <Property Name="nombreJugador" Type="nchar" MaxLength="50" />
+    <Property Name="posicion" Type="nchar" MaxLength="50" />
+    <Property Name="edad" Type="int" />
+    <Property Name="goles" Type="int" />
+    <Property Name="partidosJugados" Type="int" />
+    <Property Name="minutosJugados" Type="int" />
+    <Property Name="asistencias" Type="int" />
+    <Property Name="penalesAnotados" Type="int" />
+    <Property Name="golesIzq" Type="int" />
+    <Property Name="golesDer" Type="int" />
+    <Property Name="golesCab" Type="int" />
+    <Property Name="tirosTotal" Type="int" />
+    <Property Name="tirosPorteria" Type="int" />
+    <Property Name="tirosFuera" Type="int" />
+    <Property Name="tirosPoste" Type="int" />
+    <Property Name="barridas" Type="int" />
+    <Property Name="barridasGanadas" Type="int" />
+    <Property Name="despejesTotales" Type="int" />
+    <Property Name="porcentajeDespejes" Type="int" />
+    <Property Name="paradas" Type="int" />
+    <Property Name="bloqueos" Type="int" />
+    <Property Name="balonesRecuperados" Type="int" />
+    <Property Name="tarjetasAmarillas" Type="int" />
+    <Property Name="segundaAmarilla" Type="int" />
+    <Property Name="tarjetasRojas" Type="int" />
+    <Property Name="faltasCometidas" Type="int" />
+    <Property Name="faltasRecibidas" Type="int" />
+    <Property Name="faltasPenal" Type="int" />
+    <Property Name="pasesTotales" Type="int" />
+    <Property Name="pasesCompletos" Type="int" />
+    <Property Name="centros" Type="int" />
+    <Property Name="centrosCompletados" Type="int" />
+    <Property Name="saquesEsquina" Type="int" />
+    <Property Name="saquesBanda" Type="int" />
+    <Property Name="saquesBandaCompletados" Type="int" />
+    <Property Name="distanciaRecorridaKM" Type="float" />
+    <Property Name="distanciaCBalonKM" Type="float" />
+    <Property Name="distanciaSBalonKM" Type="float" />
+    <Property Name="velocidadMax" Type="float" />
+  </EntityType>
+  <EntityType Name="Partidas">
+    <Key>
+      <PropertyRef Name="idPartida" />
+    </Key>
+    <Property Name="idPartida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numeroPartida" Type="int" />
+    <Property Name="EstadioFK" Type="int" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="IDEquipo1" Type="int" Nullable="false" />
+    <Property Name="IDEquipo2" Type="int" Nullable="false" />
+    <Property Name="IDGanador" Type="int" />
+    <Property Name="Horario" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'D:\FOOTBALLONE\FOOTBALLONE\APP_DATA\FIFA2018.MDF.dbo.VistaPartida' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VistaPartida">
+    <Key>
+      <PropertyRef Name="nombreEstadio" />
+    </Key>
+    <Property Name="Grupo" Type="nvarchar" MaxLength="50" />
+    <Property Name="nombreEstadio" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Equipo1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Equipo2" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="hora" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_Equipo_Equipo">
+    <End Role="Equipo" Type="Self.Equipo" Multiplicity="1" />
+    <End Role="Equipo1" Type="Self.Equipo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Equipo">
+        <PropertyRef Name="idEquipo" />
+      </Principal>
+      <Dependent Role="Equipo1">
+        <PropertyRef Name="idEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jugadores_Equipo">
+    <End Role="Equipo" Type="Self.Equipo" Multiplicity="1" />
+    <End Role="Jugadores" Type="Self.Jugadores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipo">
+        <PropertyRef Name="idEquipo" />
+      </Principal>
+      <Dependent Role="Jugadores">
+        <PropertyRef Name="idEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Partidas_Equipo">
+    <End Role="Equipo" Type="Self.Equipo" Multiplicity="1" />
+    <End Role="Partidas" Type="Self.Partidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipo">
+        <PropertyRef Name="idEquipo" />
+      </Principal>
+      <Dependent Role="Partidas">
+        <PropertyRef Name="IDEquipo1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Partidas_Equipo2">
+    <End Role="Equipo" Type="Self.Equipo" Multiplicity="1" />
+    <End Role="Partidas" Type="Self.Partidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipo">
+        <PropertyRef Name="idEquipo" />
+      </Principal>
+      <Dependent Role="Partidas">
+        <PropertyRef Name="IDEquipo2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FIFA2018ModelStoreContainer">
+    <EntitySet Name="Equipo" EntityType="Self.Equipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estadios" EntityType="Self.Estadios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Jugadores" EntityType="Self.Jugadores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Partidas" EntityType="Self.Partidas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VistaPartida" EntityType="Self.VistaPartida" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VistaPartida].[Grupo] AS [Grupo], 
+    [VistaPartida].[nombreEstadio] AS [nombreEstadio], 
+    [VistaPartida].[Equipo1] AS [Equipo1], 
+    [VistaPartida].[Equipo2] AS [Equipo2], 
+    [VistaPartida].[fecha] AS [fecha], 
+    [VistaPartida].[hora] AS [hora]
+    FROM [dbo].[VistaPartida] AS [VistaPartida]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Equipo_Equipo" Association="Self.FK_Equipo_Equipo">
+      <End Role="Equipo" EntitySet="Equipo" />
+      <End Role="Equipo1" EntitySet="Equipo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jugadores_Equipo" Association="Self.FK_Jugadores_Equipo">
+      <End Role="Equipo" EntitySet="Equipo" />
+      <End Role="Jugadores" EntitySet="Jugadores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Partidas_Equipo" Association="Self.FK_Partidas_Equipo">
+      <End Role="Equipo" EntitySet="Equipo" />
+      <End Role="Partidas" EntitySet="Partidas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Partidas_Equipo2" Association="Self.FK_Partidas_Equipo2">
+      <End Role="Equipo" EntitySet="Equipo" />
+      <End Role="Partidas" EntitySet="Partidas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
