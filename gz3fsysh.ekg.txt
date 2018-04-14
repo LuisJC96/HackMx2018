@@ -1,0 +1,34 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   FootballOne/App_Data/FIFA2018.mdf
+#	modified:   FootballOne/App_Data/FIFA2018_log.ldf
+#	modified:   FootballOne/Dialogs/FootballLuis.cs
+#	modified:   FootballOne/Properties/PublishProfiles/NDSBot - FTP.pubxml.user
+#	modified:   FootballOne/Properties/PublishProfiles/NDSBot - Web Deploy.pubxml
+#	modified:   FootballOne/Properties/PublishProfiles/NDSBot - Web Deploy.pubxml.user
+#	modified:   FootballOne/bin/FootballOne.dll
+#	renamed:    FootballOne/obj/Release/Package/PackageTmp/bin/FootballOne.pdb -> FootballOne/bin/FootballOne.pdb
+#	modified:   FootballOne/obj/Debug/FootballOne.dll
+#	modified:   FootballOne/obj/Debug/FootballOne.pdb
+#	modified:   FootballOne/obj/Release/CSAutoParameterize.parameters.xml
+#	modified:   FootballOne/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+#	modified:   FootballOne/obj/Release/FootballOne.csprojResolveAssemblyReference.cache
+#	modified:   FootballOne/obj/Release/FootballOne.dll
+#	modified:   FootballOne/obj/Release/FootballOne.pdb
+#	modified:   FootballOne/obj/Release/Package/FootballOne.SourceManifest.xml
+#	modified:   FootballOne/obj/Release/Package/PackageTmp/App_Data/FIFA2018.mdf
+#	modified:   FootballOne/obj/Release/Package/PackageTmp/App_Data/FIFA2018_log.ldf
+#	deleted:    FootballOne/obj/Release/Package/PackageTmp/bin/Antlr3.Runtime.pdb
+#	modified:   FootballOne/obj/Release/Package/PackageTmp/bin/FootballOne.dll
+#	deleted:    FootballOne/obj/Release/Package/PackageTmp/bin/HtmlAgilityPack.pdb
+#	deleted:    FootballOne/obj/Release/Package/PackageTmp/bin/Microsoft.Bot.Builder.Autofac.pdb
+#	deleted:    FootballOne/obj/Release/Package/PackageTmp/bin/Microsoft.Bot.Builder.pdb
+#	modified:   FootballOne/obj/Release/Package/PackageTmp/default.htm
+#	modified:   FootballOne/obj/Release/_WPPLastBuildInfo.txt
+#
+

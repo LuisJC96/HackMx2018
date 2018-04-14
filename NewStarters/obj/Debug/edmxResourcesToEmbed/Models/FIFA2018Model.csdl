@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FIFA2018Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="FIFA2018Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Equipoes" EntityType="FIFA2018Model.Equipo" />
+    <EntitySet Name="Jugadores" EntityType="FIFA2018Model.Jugadore" />
+    <EntitySet Name="Partidas" EntityType="FIFA2018Model.Partida" />
+    <AssociationSet Name="FK_Equipo_Equipo" Association="FIFA2018Model.FK_Equipo_Equipo">
+      <End Role="Equipo" EntitySet="Equipoes" />
+      <End Role="Equipo1" EntitySet="Equipoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jugadores_Equipo" Association="FIFA2018Model.FK_Jugadores_Equipo">
+      <End Role="Equipo" EntitySet="Equipoes" />
+      <End Role="Jugadore" EntitySet="Jugadores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Partidas_Equipo" Association="FIFA2018Model.FK_Partidas_Equipo">
+      <End Role="Equipo" EntitySet="Equipoes" />
+      <End Role="Partida" EntitySet="Partidas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Partidas_Equipo2" Association="FIFA2018Model.FK_Partidas_Equipo2">
+      <End Role="Equipo" EntitySet="Equipoes" />
+      <End Role="Partida" EntitySet="Partidas" />
+    </AssociationSet>
+    <EntitySet Name="Estadios" EntityType="FIFA2018Model.Estadio" />
+    <EntitySet Name="VistaPartidas" EntityType="FIFA2018Model.VistaPartida" />
+    <EntitySet Name="Teams" EntityType="FIFA2018Model.Team" />
+  </EntityContainer>
+  <EntityType Name="Equipo">
+    <Key>
+      <PropertyRef Name="idEquipo" />
+    </Key>
+    <Property Name="idEquipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Grupo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nombreEquipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Equipo1" Relationship="FIFA2018Model.FK_Equipo_Equipo" FromRole="Equipo" ToRole="Equipo1" />
+    <NavigationProperty Name="Equipo2" Relationship="FIFA2018Model.FK_Equipo_Equipo" FromRole="Equipo1" ToRole="Equipo" />
+    <NavigationProperty Name="Jugadores" Relationship="FIFA2018Model.FK_Jugadores_Equipo" FromRole="Equipo" ToRole="Jugadore" />
+    <NavigationProperty Name="Partidas" Relationship="FIFA2018Model.FK_Partidas_Equipo" FromRole="Equipo" ToRole="Partida" />
+    <NavigationProperty Name="Partidas1" Relationship="FIFA2018Model.FK_Partidas_Equipo2" FromRole="Equipo" ToRole="Partida" />
+    <Property Name="nombreIngles" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="copasGanadas" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Jugadore">
+    <Key>
+      <PropertyRef Name="idJugador" />
+    </Key>
+    <Property Name="idJugador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idEquipo" Type="Int32" Nullable="false" />
+    <Property Name="nombreJugador" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="posicion" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Equipo" Relationship="FIFA2018Model.FK_Jugadores_Equipo" FromRole="Jugadore" ToRole="Equipo" />
+    <Property Name="edad" Type="Int32" />
+    <Property Name="goles" Type="Int32" />
+    <Property Name="partidosJugados" Type="Int32" />
+    <Property Name="minutosJugados" Type="Int32" />
+    <Property Name="asistencias" Type="Int32" />
+    <Property Name="penalesAnotados" Type="Int32" />
+    <Property Name="golesIzq" Type="Int32" />
+    <Property Name="golesDer" Type="Int32" />
+    <Property Name="golesCab" Type="Int32" />
+    <Property Name="tirosTotal" Type="Int32" />
+    <Property Name="tirosPorteria" Type="Int32" />
+    <Property Name="tirosFuera" Type="Int32" />
+    <Property Name="tirosPoste" Type="Int32" />
+    <Property Name="barridas" Type="Int32" />
+    <Property Name="barridasGanadas" Type="Int32" />
+    <Property Name="despejesTotales" Type="Int32" />
+    <Property Name="porcentajeDespejes" Type="Int32" />
+    <Property Name="paradas" Type="Int32" />
+    <Property Name="bloqueos" Type="Int32" />
+    <Property Name="balonesRecuperados" Type="Int32" />
+    <Property Name="tarjetasAmarillas" Type="Int32" />
+    <Property Name="segundaAmarilla" Type="Int32" />
+    <Property Name="tarjetasRojas" Type="Int32" />
+    <Property Name="faltasCometidas" Type="Int32" />
+    <Property Name="faltasRecibidas" Type="Int32" />
+    <Property Name="faltasPenal" Type="Int32" />
+    <Property Name="pasesTotales" Type="Int32" />
+    <Property Name="pasesCompletos" Type="Int32" />
+    <Property Name="centros" Type="Int32" />
+    <Property Name="centrosCompletados" Type="Int32" />
+    <Property Name="saquesEsquina" Type="Int32" />
+    <Property Name="saquesBanda" Type="Int32" />
+    <Property Name="saquesBandaCompletados" Type="Int32" />
+    <Property Name="distanciaRecorridaKM" Type="Double" />
+    <Property Name="distanciaCBalonKM" Type="Double" />
+    <Property Name="distanciaSBalonKM" Type="Double" />
+    <Property Name="velocidadMax" Type="Double" />
+  </EntityType>
+  <EntityType Name="Partida">
+    <Key>
+      <PropertyRef Name="idPartida" />
+    </Key>
+    <Property Name="idPartida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numeroPartida" Type="Int32" />
+    <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="IDEquipo1" Type="Int32" Nullable="false" />
+    <Property Name="IDEquipo2" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Equipo" Relationship="FIFA2018Model.FK_Partidas_Equipo" FromRole="Partida" ToRole="Equipo" />
+    <NavigationProperty Name="Equipo1" Relationship="FIFA2018Model.FK_Partidas_Equipo2" FromRole="Partida" ToRole="Equipo" />
+    <Property Name="EstadioFK" Type="Int32" />
+    <Property Name="IDGanador" Type="Int32" />
+    <Property Name="Horario" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Equipo_Equipo">
+    <End Type="FIFA2018Model.Equipo" Role="Equipo" Multiplicity="1" />
+    <End Type="FIFA2018Model.Equipo" Role="Equipo1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Equipo">
+        <PropertyRef Name="idEquipo" />
+      </Principal>
+      <Dependent Role="Equipo1">
+        <PropertyRef Name="idEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jugadores_Equipo">
+    <End Type="FIFA2018Model.Equipo" Role="Equipo" Multiplicity="1" />
+    <End Type="FIFA2018Model.Jugadore" Role="Jugadore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipo">
+        <PropertyRef Name="idEquipo" />
+      </Principal>
+      <Dependent Role="Jugadore">
+        <PropertyRef Name="idEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Partidas_Equipo">
+    <End Type="FIFA2018Model.Equipo" Role="Equipo" Multiplicity="1" />
+    <End Type="FIFA2018Model.Partida" Role="Partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipo">
+        <PropertyRef Name="idEquipo" />
+      </Principal>
+      <Dependent Role="Partida">
+        <PropertyRef Name="IDEquipo1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Partidas_Equipo2">
+    <End Type="FIFA2018Model.Equipo" Role="Equipo" Multiplicity="1" />
+    <End Type="FIFA2018Model.Partida" Role="Partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipo">
+        <PropertyRef Name="idEquipo" />
+      </Principal>
+      <Dependent Role="Partida">
+        <PropertyRef Name="IDEquipo2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Estadio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="nombreEstadio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sede" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="capacidad" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="VistaPartida">
+    <Key>
+      <PropertyRef Name="nombreEstadio" />
+    </Key>
+    <Property Name="Grupo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nombreEstadio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Equipo1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Equipo2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="hora" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+  </EntityType>
+</Schema>

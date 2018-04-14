@@ -1,0 +1,259 @@
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\FootballOne.dll.config
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\FootballOne.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\FootballOne.pdb
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Autofac.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Chronic.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\EntityFramework.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\EntityFramework.SqlServer.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.Azure.AppService.ApiApps.Service.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.Autofac.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.Bot.Connector.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.Rest.ClientRuntime.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Newtonsoft.Json.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\System.Net.Http.Formatting.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\System.Web.Http.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\System.Web.Http.WebHost.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Autofac.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\EntityFramework.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\EntityFramework.SqlServer.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.Autofac.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.Bot.Connector.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.Rest.ClientRuntime.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\Newtonsoft.Json.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\System.Net.Http.Formatting.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\System.Web.Http.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\System.Web.Http.WebHost.xml
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\cs\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\it\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\nl\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\pt-BR\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\obj\Debug\FootballOne.csprojResolveAssemblyReference.cache
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\obj\Debug\FootballOne.dll
+C:\Users\Iván\documents\visual studio 2015\Projects\FootballOne\FootballOne\obj\Debug\FootballOne.pdb
+D:\FootballOne\FootballOne\bin\FootballOne.dll.config
+D:\FootballOne\FootballOne\bin\FootballOne.dll
+D:\FootballOne\FootballOne\bin\FootballOne.pdb
+D:\FootballOne\FootballOne\bin\Autofac.dll
+D:\FootballOne\FootballOne\bin\Chronic.dll
+D:\FootballOne\FootballOne\bin\EntityFramework.dll
+D:\FootballOne\FootballOne\bin\EntityFramework.SqlServer.dll
+D:\FootballOne\FootballOne\bin\Microsoft.Azure.AppService.ApiApps.Service.dll
+D:\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.Autofac.dll
+D:\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.dll
+D:\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Logging.dll
+D:\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+D:\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.dll
+D:\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Tokens.dll
+D:\FootballOne\FootballOne\bin\Microsoft.Rest.ClientRuntime.dll
+D:\FootballOne\FootballOne\bin\Microsoft.WindowsAzure.Configuration.dll
+D:\FootballOne\FootballOne\bin\Newtonsoft.Json.dll
+D:\FootballOne\FootballOne\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\FootballOne\FootballOne\bin\System.Net.Http.Formatting.dll
+D:\FootballOne\FootballOne\bin\System.Web.Http.dll
+D:\FootballOne\FootballOne\bin\System.Web.Http.WebHost.dll
+D:\FootballOne\FootballOne\bin\Autofac.xml
+D:\FootballOne\FootballOne\bin\EntityFramework.xml
+D:\FootballOne\FootballOne\bin\EntityFramework.SqlServer.xml
+D:\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.xml
+D:\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.Autofac.xml
+D:\FootballOne\FootballOne\bin\Microsoft.Bot.Connector.xml
+D:\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Logging.xml
+D:\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+D:\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.xml
+D:\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+D:\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Tokens.xml
+D:\FootballOne\FootballOne\bin\Microsoft.Rest.ClientRuntime.xml
+D:\FootballOne\FootballOne\bin\Microsoft.WindowsAzure.Configuration.xml
+D:\FootballOne\FootballOne\bin\Newtonsoft.Json.xml
+D:\FootballOne\FootballOne\bin\System.IdentityModel.Tokens.Jwt.xml
+D:\FootballOne\FootballOne\bin\System.Net.Http.Formatting.xml
+D:\FootballOne\FootballOne\bin\System.Web.Http.xml
+D:\FootballOne\FootballOne\bin\System.Web.Http.WebHost.xml
+D:\FootballOne\FootballOne\bin\ar\Microsoft.Bot.Builder.resources.dll
+D:\FootballOne\FootballOne\bin\cs\Microsoft.Bot.Builder.resources.dll
+D:\FootballOne\FootballOne\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+D:\FootballOne\FootballOne\bin\en\Microsoft.Bot.Builder.resources.dll
+D:\FootballOne\FootballOne\bin\es\Microsoft.Bot.Builder.resources.dll
+D:\FootballOne\FootballOne\bin\fa\Microsoft.Bot.Builder.resources.dll
+D:\FootballOne\FootballOne\bin\fr\Microsoft.Bot.Builder.resources.dll
+D:\FootballOne\FootballOne\bin\it\Microsoft.Bot.Builder.resources.dll
+D:\FootballOne\FootballOne\bin\ja\Microsoft.Bot.Builder.resources.dll
+D:\FootballOne\FootballOne\bin\nl\Microsoft.Bot.Builder.resources.dll
+D:\FootballOne\FootballOne\bin\pt-BR\Microsoft.Bot.Builder.resources.dll
+D:\FootballOne\FootballOne\bin\ru\Microsoft.Bot.Builder.resources.dll
+D:\FootballOne\FootballOne\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+D:\FootballOne\FootballOne\obj\Debug\FootballOne.csprojResolveAssemblyReference.cache
+D:\FootballOne\FootballOne\obj\Debug\FootballOne.csproj.CoreCompileInputs.cache
+D:\FootballOne\FootballOne\obj\Debug\FootballOne.dll
+D:\FootballOne\FootballOne\obj\Debug\FootballOne.pdb
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\FootballOne.dll.config
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\FootballOne.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\FootballOne.pdb
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Autofac.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Chronic.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\EntityFramework.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\EntityFramework.SqlServer.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.Azure.AppService.ApiApps.Service.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.Autofac.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.Bot.Connector.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.Rest.ClientRuntime.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Newtonsoft.Json.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Net.Http.Formatting.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.Http.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.Http.WebHost.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Autofac.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\EntityFramework.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\EntityFramework.SqlServer.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.Autofac.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.Bot.Connector.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.Rest.ClientRuntime.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Newtonsoft.Json.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Net.Http.Formatting.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.Http.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.Http.WebHost.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\cs\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\it\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\nl\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\pt-BR\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\obj\Debug\FootballOne.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\obj\Debug\FootballOne.pdb
+\\Mac\Nearshore\FootballOne\FootballOne\bin\FootballOne.dll.config
+\\Mac\Nearshore\FootballOne\FootballOne\bin\FootballOne.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\FootballOne.pdb
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Autofac.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Chronic.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\EntityFramework.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\EntityFramework.SqlServer.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\HtmlAgilityPack.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.Azure.AppService.ApiApps.Service.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.Autofac.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.Bot.Connector.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Logging.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Tokens.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.Rest.ClientRuntime.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.WindowsAzure.Configuration.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Newtonsoft.Json.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\System.IdentityModel.Tokens.Jwt.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\System.Net.Http.Formatting.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\System.Web.Http.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\System.Web.Http.WebHost.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Autofac.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\EntityFramework.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\EntityFramework.SqlServer.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\HtmlAgilityPack.pdb
+\\Mac\Nearshore\FootballOne\FootballOne\bin\HtmlAgilityPack.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.Autofac.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.Bot.Connector.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Logging.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.IdentityModel.Tokens.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.Rest.ClientRuntime.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Microsoft.WindowsAzure.Configuration.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\Newtonsoft.Json.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\System.IdentityModel.Tokens.Jwt.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\System.Net.Http.Formatting.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\System.Web.Http.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\System.Web.Http.WebHost.xml
+\\Mac\Nearshore\FootballOne\FootballOne\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\ja\Microsoft.Bot.Builder.resources.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\it\Microsoft.Bot.Builder.resources.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\cs\Microsoft.Bot.Builder.resources.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\ru\Microsoft.Bot.Builder.resources.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\ar\Microsoft.Bot.Builder.resources.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\pt-BR\Microsoft.Bot.Builder.resources.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\nl\Microsoft.Bot.Builder.resources.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\fr\Microsoft.Bot.Builder.resources.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\es\Microsoft.Bot.Builder.resources.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\en\Microsoft.Bot.Builder.resources.dll
+\\Mac\Nearshore\FootballOne\FootballOne\bin\fa\Microsoft.Bot.Builder.resources.dll
+\\Mac\Nearshore\FootballOne\FootballOne\obj\Debug\FootballOne.csprojResolveAssemblyReference.cache
+\\Mac\Nearshore\FootballOne\FootballOne\obj\Debug\FootballOne.csproj.CoreCompileInputs.cache
+\\Mac\Nearshore\FootballOne\FootballOne\obj\Debug\FootballOne.dll
+\\Mac\Nearshore\FootballOne\FootballOne\obj\Debug\FootballOne.pdb
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\HtmlAgilityPack.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\HtmlAgilityPack.pdb
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\HtmlAgilityPack.xml
+D:\FootballOne\FootballOne\bin\HtmlAgilityPack.dll
+D:\FootballOne\FootballOne\bin\HtmlAgilityPack.pdb
+D:\FootballOne\FootballOne\bin\HtmlAgilityPack.xml
+D:\FootballOne\FootballOne\bin\Microsoft.Bot.Connector.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Antlr3.Runtime.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.Helpers.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.Mvc.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.Optimization.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.Razor.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.WebPages.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.WebPages.Razor.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\WebGrease.dll
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Antlr3.Runtime.pdb
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.Helpers.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.Mvc.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.Optimization.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.Razor.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.WebPages.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\System.Web.WebPages.Razor.xml
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.pdb
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\bin\Microsoft.Bot.Builder.Autofac.pdb
+C:\Users\Iván\Desktop\FootballOne\FootballOne\FootballOne\obj\Debug\FootballOne.csprojResolveAssemblyReference.cache
