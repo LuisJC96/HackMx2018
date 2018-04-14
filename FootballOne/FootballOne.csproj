@@ -174,6 +174,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\NewStartersDB.mdf" />
+    <Content Include="App_Data\NewStartersDB_log.ldf">
+      <DependentUpon>NewStartersDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -189,6 +193,16 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Models\StartersData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StartersData.edmx</DependentUpon>
+      <LastGenOutput>StartersData.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\StartersData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StartersData.edmx</DependentUpon>
+      <LastGenOutput>StartersData.cs</LastGenOutput>
+    </Content>
     <Content Include="public\assets\icons\pdf32.png" />
     <Content Include="public\assets\icons\weather\weather_0.png" />
     <Content Include="public\assets\icons\weather\weather_1.png" />
@@ -249,6 +263,13 @@
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <EntityDeploy Include="Models\StartersData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StartersData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\StartersData.edmx.diagram">
+      <DependentUpon>StartersData.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\NDSBot - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\NDSBot - Web Deploy.pubxml" />
     <Content Include="public\assets\.DS_Store" />
@@ -316,6 +337,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\StartersData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StartersData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StartersData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StartersData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StartersData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StartersData.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -350,8 +386,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Update\" />
   </ItemGroup>
   <ItemGroup>
