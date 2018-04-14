@@ -41,7 +41,15 @@ namespace FootballOne.Dialogs
             context.Wait(MessageReceived);
             return;
         }
-
+        [LuisIntent("Ejemplo")]
+        public async Task EjemploIntent(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            int a = 2;
+            string message = $"hola a vale {a}, este es el intent de EJEMPLO";
+            await context.PostAsync(message);
+            context.Wait(MessageReceived);
+            return;
+        }
         /*************************************
             * Métodos para el manejo y filtro de entities
             * **********************************/
@@ -70,59 +78,6 @@ namespace FootballOne.Dialogs
                 return "notFound";
             }
         }
-      
-        public string RemoveDiacritics(String s)
-        {
-            String normalizedString = s.Normalize(NormalizationForm.FormD);
-            StringBuilder stringBuilder = new StringBuilder();
-
-            for (int i = 0; i < normalizedString.Length; i++)
-            {
-                Char c = normalizedString[i];
-                if (System.Globalization.CharUnicodeInfo.GetUnicodeCategory(c) != System.Globalization.UnicodeCategory.NonSpacingMark)
-                    stringBuilder.Append(c);
-            }
-
-            return stringBuilder.ToString();
-        }
-        public String checkSingle(int compare)
-        {
-            if (compare == 1)
-            {
-                return "";
-            }
-            else
-            {
-                return "s";
-            }
-
-        }
-        public void SimplifyFraction(int upIn, int downIn, out int up, out int down) //Recibe dos número partes de una sola fracción y los simplifica
-        {
-            int limit;
-            up = upIn;
-            down = downIn;
-            if(upIn > downIn)
-            {
-                limit = downIn;
-                
-            }
-            else
-            {
-                limit = upIn;
-            }
-            for (int x = 1; x <= limit; x++)
-            {
-                if ( ((downIn % x) == 0 ) && ((upIn % x) == 0))
-                {
-                    upIn = upIn / x;
-                    downIn = downIn / x;
-                }
-            }
-            down = downIn;
-            up = upIn;
-        }
-
     }
     /**********************
      * Manejo de forms
