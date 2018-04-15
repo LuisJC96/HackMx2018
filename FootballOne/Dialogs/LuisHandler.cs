@@ -104,7 +104,7 @@ namespace FootballOne.Dialogs
             Models.NewStartersDBEntities DB = new Models.NewStartersDBEntities();
             //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
             var misDatos = (from yo in DB.Empleado
-                            where yo.empleadoID == 1
+                            where yo.empleadoID == 6
                             select new
                             {
                                 nombre = yo.nombre,
@@ -130,19 +130,30 @@ namespace FootballOne.Dialogs
                                  idPrueba = empleado.empleadoID
                              }
                 ).ToList();
-            for(int i = 0; i<datosEmpleados.Count; i++)
+            if (datosEmpleados.Count() == 0)
             {
-                if (i == 0)
-                {
-                    message += $"Tus empleados son:  \n " +
-                    $"{datosEmpleados[i].nombre} {datosEmpleados[i].apellido}  \n";
-                }
-                else
-                {
-                    message += $"{datosEmpleados[i].nombre} {datosEmpleados[i].apellido}  \n";
-                }
-                
+                message += "De momento no tienes registrados empleados";
+                await context.PostAsync(message);
+                context.Wait(MessageReceived);
+                return;
             }
+            else
+            {
+                for (int i = 0; i < datosEmpleados.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        message += $"Tus empleados son:  \n " +
+                        $"{datosEmpleados[i].nombre} {datosEmpleados[i].apellido}  \n";
+                    }
+                    else
+                    {
+                        message += $"{datosEmpleados[i].nombre} {datosEmpleados[i].apellido}  \n";
+                    }
+
+                }
+            }
+            
             
             await context.PostAsync(message);
             context.Wait(MessageReceived);
