@@ -22,7 +22,25 @@ namespace FootballOne
         {
             if (activity.Type == ActivityTypes.Message)
             {
-                await Conversation.SendAsync(activity, () => new Dialogs.LuisHandler());
+                if (activity.Text.ToLower().Contains("como se ve"))
+                {
+                    HtmlAgilityPack.HtmlWeb web = new HtmlAgilityPack.HtmlWeb();
+                    HtmlAgilityPack.HtmlDocument doc = web.Load("https://www.google.com/search?q=" + activity.Text.ToLower().Replace("como se ve una ","").Replace("como se ve un ","").Replace(" ", "+").Replace("?","") + "&tbm=isch");
+                    var images = doc.DocumentNode.SelectNodes("//img[@src]").ToList();
+                    Random rn = new Random();
+                    var src = images[rn.Next(0, images.Count / 2)].GetAttributeValue("src", null);
+                    Attachment att = new Attachment();
+                    att.ContentType = "image/png";
+                    att.ContentUrl = src;
+                    var reply = activity.CreateReply();
+                    reply.Attachments.Add(att);
+                    ConnectorClient client = new ConnectorClient(new Uri(activity.ServiceUrl));
+                    await client.Conversations.ReplyToActivityAsync(reply);
+                }
+                else
+                {
+                    await Conversation.SendAsync(activity, () => new Dialogs.LuisHandler());
+                }
             }
             else
             if (activity.Type == ActivityTypes.ConversationUpdate)

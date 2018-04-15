@@ -687,7 +687,12 @@ namespace FootballOne.Dialogs
             context.Wait(MessageReceived);
             return;
         }
-
+        [LuisIntent("ComoSeVe")]
+        public async Task ComoSeVeItent(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            
+            return;
+        }
             /*************************************
                 * Métodos para el manejo y filtro de entities
                 * **********************************/
