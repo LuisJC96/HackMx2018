@@ -25,5 +25,8 @@ namespace FootballOne.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Departamento> Departamento { get; set; }
+        public virtual DbSet<Empleado> Empleado { get; set; }
+        public virtual DbSet<Sede> Sede { get; set; }
     }
 }
