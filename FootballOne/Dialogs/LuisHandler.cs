@@ -50,6 +50,42 @@ namespace FootballOne.Dialogs
             context.Wait(MessageReceived);
             return;
         }
+        [LuisIntent("NombreJefeInmediato")]
+        public async Task NombreJefeInmediatoIntent(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            string message = $"";
+            Models.NewStartersDBEntities DB = new Models.NewStartersDBEntities();
+            await context.PostAsync(message);
+            //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
+            var misDatos = ( from yo in DB.Empleado
+                             where yo.empleadoID == 4
+                             select new
+                             {
+                                 nombre = yo.nombre,
+                                 apellido = yo.apellido,
+                                 jefeId = yo.jefeInmediatoID,
+                                 puesto = yo.puesto,
+                                 sede = yo.sede,
+                                 departamentoID = yo .departamento,
+                                 foto = yo.fotoURL,
+                                 jerarquia = yo.jerarquia
+                             }
+                ).ToList();
+            int id = (int)misDatos[0].jefeId;
+            var datosJefe = ( from jefe in DB.Empleado
+                          where jefe.empleadoID == id
+                          select new
+                          {
+                              nombre = jefe.nombre,
+                              apellido = jefe.apellido,
+                              sede = jefe.sede
+                          }
+                ).ToList();
+            message += $"Tu jefe inmediato es {datosJefe[0].nombre} {datosJefe[0].apellido}";
+            await context.PostAsync(message);
+            context.Wait(MessageReceived);
+            return;
+        }
         /*************************************
             * Métodos para el manejo y filtro de entities
             * **********************************/
