@@ -159,6 +159,29 @@ namespace FootballOne.Dialogs
             context.Wait(MessageReceived);
             return;
         }
+        [LuisIntent("Saludar")]
+        public async Task Saludar(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            string message = $"";
+            Models.NewStartersDBEntities DB = new Models.NewStartersDBEntities();
+            message += "¡Hola!";
+            await context.PostAsync(message);
+            context.Wait(MessageReceived);
+            return;
+        }
+        [LuisIntent("QuienEres")]
+        public async Task QuienEres(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            string message = $"";
+            Models.NewStartersDBEntities DB = new Models.NewStartersDBEntities();
+            message += "Hola, soy New Starter, soy un asistente que te permite ponerte al corriente " +
+                "con la empresa, preguntame lo que necesites";
+            await context.PostAsync(message);
+            context.Wait(MessageReceived);
+            return;
+        }
+
+
 
         /*************************************
             * Métodos para el manejo y filtro de entities
