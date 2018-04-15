@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NewStartersDBModelStoreContainer" CdmEntityContainer="NewStartersDBEntities1">
+    <EntitySetMapping Name="Departamento">
+      <EntityTypeMapping TypeName="NewStartersDBModel.Departamento">
+        <MappingFragment StoreEntitySet="Departamento">
+          <ScalarProperty Name="departamentoID" ColumnName="departamentoID" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="NewStartersDBModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="empleadoID" ColumnName="empleadoID" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="jerarquia" ColumnName="jerarquia" />
+          <ScalarProperty Name="jefeInmediatoID" ColumnName="jefeInmediatoID" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="sede" ColumnName="sede" />
+          <ScalarProperty Name="fotoURL" ColumnName="fotoURL" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado_Departamento">
+      <EntityTypeMapping TypeName="NewStartersDBModel.Empleado_Departamento">
+        <MappingFragment StoreEntitySet="Empleado_Departamento">
+          <ScalarProperty Name="departamentoID" ColumnName="departamentoID" />
+          <ScalarProperty Name="jefeID" ColumnName="jefeID" />
+          <ScalarProperty Name="representanteID" ColumnName="representanteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sede">
+      <EntityTypeMapping TypeName="NewStartersDBModel.Sede">
+        <MappingFragment StoreEntitySet="Sede">
+          <ScalarProperty Name="sedeID" ColumnName="sedeID" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

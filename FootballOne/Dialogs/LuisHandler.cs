@@ -82,19 +82,39 @@ namespace FootballOne.Dialogs
                               nombre = jefe.nombre,
                               apellido = jefe.apellido,
                               sede = jefe.sede,
-                              foto = jefe.fotoURL
+                              foto = jefe.fotoURL,
+                              tel = jefe.numero,
+                              mail = jefe.mail
                           }
                 ).ToList();
             cardImages.Add(new CardImage(datosJefe[0].foto));
             card.Images = cardImages;
-            message += $"Tu jefe es {datosJefe[0].nombre} {datosJefe[0].apellido}";
             card.Subtitle = $"{datosJefe[0].nombre} {datosJefe[0].apellido}";
-            card.Text = $"Tu jefe es {datosJefe[0].nombre}";
+            card.Text = $"Tu jefe es {datosJefe[0].nombre}  \nCorreo: {datosJefe[0].mail}";
+            List<CardAction> cardButtons = new List<CardAction>();
+            CardAction callButton = new CardAction()
+            {
+                Value = $"tel:{datosJefe[0].tel}",
+                Type = "call",
+                Title = "Llamar"
+            };
+            int sedeID = (int)datosJefe[0].sede;
+            var ubicacion = (from s in DB.Sede
+                             where s.sedeID == sedeID
+                             select s.direccion).ToList();
+            CardAction mapButton = new CardAction()
+            {
+                Value = $"https://www.google.com.mx/maps/place/" + $"{ubicacion[0].Replace(" ","+")}",
+                Type = "openUrl",
+                Title = "Ir a sede"
+            };
+            cardButtons.Add(callButton);
+            cardButtons.Add(mapButton);
+            card.Buttons = cardButtons;
             Attachment att = card.ToAttachment();
             IMessageActivity reply = context.MakeMessage();
             reply.Attachments.Add(att);
             await context.PostAsync(reply);
-            await context.PostAsync(message);
             context.Wait(MessageReceived);
             return;
         }
@@ -159,6 +179,26 @@ namespace FootballOne.Dialogs
                     card.Text += $"Correo: {datosEmpleados[i].mail}";
                     cardImages.Add(new CardImage(datosEmpleados[i].foto));
                     card.Images = cardImages;
+                    List<CardAction> cardButtons = new List<CardAction>();
+                    CardAction callButton = new CardAction()
+                    {
+                        Value = $"tel:{datosEmpleados[i].tel}",
+                        Type = "call",
+                        Title = "Llamar"
+                    };
+                    int sedeID = (int)datosEmpleados[i].sede;
+                    var ubicacion = (from s in DB.Sede
+                                     where s.sedeID == sedeID
+                                     select s.direccion).ToList();
+                    CardAction mapButton = new CardAction()
+                    {
+                        Value = $"https://www.google.com.mx/maps/place/" + $"{ubicacion[0].Replace(" ", "+")}",
+                        Type = "openUrl",
+                        Title = "Ir a sede"
+                    };
+                    cardButtons.Add(callButton);
+                    cardButtons.Add(mapButton);
+                    card.Buttons = cardButtons;
                     Attachment att = card.ToAttachment();
                     IMessageActivity reply = context.MakeMessage();
                     reply.Attachments.Add(att);
@@ -251,6 +291,26 @@ namespace FootballOne.Dialogs
             card.Text += $"Correo: {datosJefe[0].mail}";
             cardImages.Add(new CardImage(datosJefe[0].foto));
             card.Images = cardImages;
+            List<CardAction> cardButtons = new List<CardAction>();
+            CardAction callButton = new CardAction()
+            {
+                Value = $"tel:{datosJefe[0].tel}",
+                Type = "call",
+                Title = "Llamar"
+            };
+            int sedeID = (int)datosJefe[0].sede;
+            var ubicacion = (from s in DB.Sede
+                             where s.sedeID == sedeID
+                             select s.direccion).ToList();
+            CardAction mapButton = new CardAction()
+            {
+                Value = $"https://www.google.com.mx/maps/place/" + $"{ubicacion[0].Replace(" ", "+")}",
+                Type = "openUrl",
+                Title = "Ir a sede"
+            };
+            cardButtons.Add(callButton);
+            cardButtons.Add(mapButton);
+            card.Buttons = cardButtons;
             Attachment att = card.ToAttachment();
             IMessageActivity reply = context.MakeMessage();
             reply.Attachments.Add(att);
@@ -343,6 +403,26 @@ namespace FootballOne.Dialogs
             card.Text += $"Correo: {datosJefe[0].mail}";
             cardImages.Add(new CardImage(datosJefe[0].foto));
             card.Images = cardImages;
+            List<CardAction> cardButtons = new List<CardAction>();
+            CardAction callButton = new CardAction()
+            {
+                Value = $"tel:{datosJefe[0].tel}",
+                Type = "call",
+                Title = "Llamar"
+            };
+            int sedeID = (int)datosJefe[0].sede;
+            var ubicacion = (from s in DB.Sede
+                             where s.sedeID == sedeID
+                             select s.direccion).ToList();
+            CardAction mapButton = new CardAction()
+            {
+                Value = $"https://www.google.com.mx/maps/place/" + $"{ubicacion[0].Replace(" ", "+")}",
+                Type = "openUrl",
+                Title = "Ir a sede"
+            };
+            cardButtons.Add(callButton);
+            cardButtons.Add(mapButton);
+            card.Buttons = cardButtons;
             Attachment att = card.ToAttachment();
             IMessageActivity reply = context.MakeMessage();
             reply.Attachments.Add(att);
@@ -409,6 +489,26 @@ namespace FootballOne.Dialogs
             card.Text += $"Correo: {datosJefe[0].mail}";
             cardImages.Add(new CardImage(datosJefe[0].foto));
             card.Images = cardImages;
+            List<CardAction> cardButtons = new List<CardAction>();
+            CardAction callButton = new CardAction()
+            {
+                Value = $"tel:{datosJefe[0].tel}",
+                Type = "call",
+                Title = "Llamar"
+            };
+            int sedeID = (int)datosJefe[0].sede;
+            var ubicacion = (from s in DB.Sede
+                             where s.sedeID == sedeID
+                             select s.direccion).ToList();
+            CardAction mapButton = new CardAction()
+            {
+                Value = $"https://www.google.com.mx/maps/place/" + $"{ubicacion[0].Replace(" ", "+")}",
+                Type = "openUrl",
+                Title = "Ir a sede"
+            };
+            cardButtons.Add(callButton);
+            cardButtons.Add(mapButton);
+            card.Buttons = cardButtons;
             Attachment att = card.ToAttachment();
             IMessageActivity reply = context.MakeMessage();
             reply.Attachments.Add(att);
@@ -475,6 +575,26 @@ namespace FootballOne.Dialogs
             card.Text += $"Correo: {datosJefe[0].mail}";
             cardImages.Add(new CardImage(datosJefe[0].foto));
             card.Images = cardImages;
+            List<CardAction> cardButtons = new List<CardAction>();
+            CardAction callButton = new CardAction()
+            {
+                Value = $"tel:{datosJefe[0].tel}",
+                Type = "call",
+                Title = "Llamar"
+            };
+            int sedeID = (int)datosJefe[0].sede;
+            var ubicacion = (from s in DB.Sede
+                             where s.sedeID == sedeID
+                             select s.direccion).ToList();
+            CardAction mapButton = new CardAction()
+            {
+                Value = $"https://www.google.com.mx/maps/place/" + $"{ubicacion[0].Replace(" ", "+")}",
+                Type = "openUrl",
+                Title = "Ir a sede"
+            };
+            cardButtons.Add(callButton);
+            cardButtons.Add(mapButton);
+            card.Buttons = cardButtons;
             Attachment att = card.ToAttachment();
             IMessageActivity reply = context.MakeMessage();
             reply.Attachments.Add(att);
@@ -497,7 +617,9 @@ namespace FootballOne.Dialogs
                                 numero = compas.numero,
                                 puesto = compas.puesto,
                                 mail = compas.mail, 
-                                foto = compas.fotoURL
+                                foto = compas.fotoURL,
+                                tel = compas.numero,
+                                sede = compas.sede
                             }
                 ).ToList();
 
@@ -515,6 +637,26 @@ namespace FootballOne.Dialogs
                     card.Text += $"Correo: {item.mail}";
                     cardImages.Add(new CardImage(item.foto));
                     card.Images = cardImages;
+                    List<CardAction> cardButtons = new List<CardAction>();
+                    CardAction callButton = new CardAction()
+                    {
+                        Value = $"tel:{item.tel}",
+                        Type = "call",
+                        Title = "Llamar"
+                    };
+                    int sedeID = (int)item.sede;
+                    var ubicacion = (from s in DB.Sede
+                                     where s.sedeID == sedeID
+                                     select s.direccion).ToList();
+                    CardAction mapButton = new CardAction()
+                    {
+                        Value = $"https://www.google.com.mx/maps/place/" + $"{ubicacion[0].Replace(" ", "+")}",
+                        Type = "openUrl",
+                        Title = "Ir a sede"
+                    };
+                    cardButtons.Add(callButton);
+                    cardButtons.Add(mapButton);
+                    card.Buttons = cardButtons;
                     Attachment att = card.ToAttachment();
                     IMessageActivity reply = context.MakeMessage();
                     reply.Attachments.Add(att);

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NewStartersDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="departamentoID" />
+    </Key>
+    <Property Name="departamentoID" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="ubicacion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="empleadoID" />
+    </Key>
+    <Property Name="empleadoID" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="apellido" Type="varchar" MaxLength="50" />
+    <Property Name="jerarquia" Type="int" />
+    <Property Name="jefeInmediatoID" Type="int" />
+    <Property Name="puesto" Type="varchar" MaxLength="50" />
+    <Property Name="departamento" Type="int" />
+    <Property Name="sede" Type="int" />
+    <Property Name="fotoURL" Type="varchar" MaxLength="150" />
+    <Property Name="numero" Type="varchar" MaxLength="15" />
+    <Property Name="mail" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Empleado_Departamento">
+    <Key>
+      <PropertyRef Name="departamentoID" />
+      <PropertyRef Name="jefeID" />
+      <PropertyRef Name="representanteID" />
+    </Key>
+    <Property Name="departamentoID" Type="int" Nullable="false" />
+    <Property Name="jefeID" Type="int" Nullable="false" />
+    <Property Name="representanteID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sede">
+    <Key>
+      <PropertyRef Name="sedeID" />
+    </Key>
+    <Property Name="sedeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="direccion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Empleado_Departamento_ToDepartamento">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+    <End Role="Empleado_Departamento" Type="Self.Empleado_Departamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="departamentoID" />
+      </Principal>
+      <Dependent Role="Empleado_Departamento">
+        <PropertyRef Name="departamentoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Departamento_ToEmpledo">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Empleado_Departamento" Type="Self.Empleado_Departamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="empleadoID" />
+      </Principal>
+      <Dependent Role="Empleado_Departamento">
+        <PropertyRef Name="jefeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_Departamento_ToRepresentante">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Empleado_Departamento" Type="Self.Empleado_Departamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="empleadoID" />
+      </Principal>
+      <Dependent Role="Empleado_Departamento">
+        <PropertyRef Name="representanteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_ToDepartamento">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="departamentoID" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_ToEmpleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+    <End Role="Empleado1" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="empleadoID" />
+      </Principal>
+      <Dependent Role="Empleado1">
+        <PropertyRef Name="jefeInmediatoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_ToSede">
+    <End Role="Sede" Type="Self.Sede" Multiplicity="0..1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sede">
+        <PropertyRef Name="sedeID" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="sede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NewStartersDBModelStoreContainer">
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado_Departamento" EntityType="Self.Empleado_Departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sede" EntityType="Self.Sede" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Empleado_Departamento_ToDepartamento" Association="Self.FK_Empleado_Departamento_ToDepartamento">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Empleado_Departamento" EntitySet="Empleado_Departamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Departamento_ToEmpledo" Association="Self.FK_Empleado_Departamento_ToEmpledo">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Empleado_Departamento" EntitySet="Empleado_Departamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_Departamento_ToRepresentante" Association="Self.FK_Empleado_Departamento_ToRepresentante">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Empleado_Departamento" EntitySet="Empleado_Departamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_ToDepartamento" Association="Self.FK_Empleado_ToDepartamento">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_ToEmpleado" Association="Self.FK_Empleado_ToEmpleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Empleado1" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_ToSede" Association="Self.FK_Empleado_ToSede">
+      <End Role="Sede" EntitySet="Sede" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
