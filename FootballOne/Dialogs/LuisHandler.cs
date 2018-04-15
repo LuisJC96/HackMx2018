@@ -205,7 +205,7 @@ namespace FootballOne.Dialogs
         [LuisIntent("TI")]
         public async Task TI(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
-            string message = $"";
+            
             Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
             //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
             var misDatos = (from dept in DB.Empleado_Departamento
@@ -217,6 +217,18 @@ namespace FootballOne.Dialogs
                                 dept = dept.departamentoID
                             }
                 ).ToList();
+
+            int id3 = (int)misDatos[0].dept;
+            var datosJefe3 = (from depto in DB.Departamento
+                              where depto.departamentoID == id3
+                              select new
+                              {
+                                  ubicacion = depto.ubicacion
+                              }
+                ).ToList();
+            string message = $"El departamento de TI se encuentra en {datosJefe3[0].ubicacion} y el contacto es:";
+            await context.PostAsync(message);
+
             int id = (int)misDatos[0].jefe;
             var datosJefe = (from jefe in DB.Empleado
                              where jefe.empleadoID == id
@@ -275,7 +287,7 @@ namespace FootballOne.Dialogs
         [LuisIntent("Administracion")]
         public async Task Administracion(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
-            string message = $"";
+           
             Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
             //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
             var misDatos = (from dept in DB.Empleado_Departamento
@@ -287,6 +299,18 @@ namespace FootballOne.Dialogs
                                 dept = dept.departamentoID
                             }
                 ).ToList();
+
+            int id3 = (int)misDatos[0].dept;
+            var datosJefe3 = (from depto in DB.Departamento
+                              where depto.departamentoID == id3
+                              select new
+                              {
+                                  ubicacion = depto.ubicacion
+                              }
+                ).ToList();
+            string message = $"El departamento de Administracion se encuentra en {datosJefe3[0].ubicacion} y el contacto es:";
+            await context.PostAsync(message);
+
             int id = (int)misDatos[0].jefe;
             var datosJefe = (from jefe in DB.Empleado
                              where jefe.empleadoID == id
@@ -300,7 +324,7 @@ namespace FootballOne.Dialogs
                                  mail = jefe.mail
                              }
                 ).ToList();
-            await context.PostAsync(message);
+            
             int id2 = (int)misDatos[0].representate;
             var datosRep = (from representante in DB.Empleado
                             where representante.empleadoID == id
@@ -330,7 +354,7 @@ namespace FootballOne.Dialogs
         [LuisIntent("Finanzas")]
         public async Task Finanazas(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
-            string message = $"";
+            
             Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
             //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
             var misDatos = (from dept in DB.Empleado_Departamento
@@ -342,6 +366,18 @@ namespace FootballOne.Dialogs
                                 dept = dept.departamentoID
                             }
                 ).ToList();
+
+            int id3 = (int)misDatos[0].dept;
+            var datosJefe3 = (from depto in DB.Departamento
+                              where depto.departamentoID == id3
+                              select new
+                              {
+                                  ubicacion = depto.ubicacion
+                              }
+                ).ToList();
+            string message = $"El departamento de Finanzas se encuentra en {datosJefe3[0].ubicacion} y el contacto es:";
+            await context.PostAsync(message);
+
             int id = (int)misDatos[0].jefe;
             var datosJefe = (from jefe in DB.Empleado
                              where jefe.empleadoID == id
@@ -369,6 +405,72 @@ namespace FootballOne.Dialogs
             HeroCard card = new HeroCard();
             card.Title = $"{datosJefe[0].nombre} {datosJefe[0].apellido}";
             card.Subtitle = "Jefe del departamento de finanzas";
+            card.Text = $"Teléfono: {datosJefe[0].tel}  \n";
+            card.Text += $"Correo: {datosJefe[0].mail}";
+            cardImages.Add(new CardImage(datosJefe[0].foto));
+            card.Images = cardImages;
+            Attachment att = card.ToAttachment();
+            IMessageActivity reply = context.MakeMessage();
+            reply.Attachments.Add(att);
+            await context.PostAsync(reply);
+            context.Wait(MessageReceived);
+            return;
+        }
+
+        [LuisIntent("Mercadotecnia")]
+        public async Task Mercadotecnia(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
+            //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
+            var misDatos = (from dept in DB.Empleado_Departamento
+                            where dept.departamentoID == 2
+                            select new
+                            {
+                                representate = dept.representanteID,
+                                jefe = dept.jefeID,
+                                dept = dept.departamentoID
+                            }
+                ).ToList();
+
+            int id3 = (int)misDatos[0].dept;
+            var datosJefe3 = (from depto in DB.Departamento
+                             where depto.departamentoID == id3
+                             select new
+                             {
+                                 ubicacion = depto.ubicacion
+                             }
+                ).ToList();
+            string message = $"El departamento de Mercadotecnia se encuentra en {datosJefe3[0].ubicacion} y el contacto es:";
+            await context.PostAsync(message);
+
+
+            int id = (int)misDatos[0].jefe;
+            var datosJefe = (from jefe in DB.Empleado
+                             where jefe.empleadoID == id
+                             select new
+                             {
+                                 nombre = jefe.nombre,
+                                 apellido = jefe.apellido,
+                                 sede = jefe.sede,
+                                 foto = jefe.fotoURL,
+                                 mail = jefe.mail,
+                                 tel = jefe.numero
+                             }
+                ).ToList();
+            int id2 = (int)misDatos[0].representate;
+            var datosRep = (from representante in DB.Empleado
+                            where representante.empleadoID == id
+                            select new
+                            {
+                                nombre = representante.nombre,
+                                apellido = representante.apellido,
+                                sede = representante.sede
+                            }
+                ).ToList();
+            List<CardImage> cardImages = new List<CardImage>();
+            HeroCard card = new HeroCard();
+            card.Title = $"{datosJefe[0].nombre} {datosJefe[0].apellido}";
+            card.Subtitle = "Jefe del departamento de mercadotecnia";
             card.Text = $"Teléfono: {datosJefe[0].tel}  \n";
             card.Text += $"Correo: {datosJefe[0].mail}";
             cardImages.Add(new CardImage(datosJefe[0].foto));
