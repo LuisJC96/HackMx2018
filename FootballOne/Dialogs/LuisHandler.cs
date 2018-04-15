@@ -355,9 +355,6 @@ namespace FootballOne.Dialogs
                                  tel = jefe.numero
                              }
                 ).ToList();
-
-            message += $"El jefe del area de Finanzas es {datosJefe[0].nombre} {datosJefe[0].apellido}\n";
-            await context.PostAsync(message);
             int id2 = (int)misDatos[0].representate;
             var datosRep = (from representante in DB.Empleado
                             where representante.empleadoID == id
@@ -380,7 +377,6 @@ namespace FootballOne.Dialogs
             IMessageActivity reply = context.MakeMessage();
             reply.Attachments.Add(att);
             await context.PostAsync(reply);
-            await context.PostAsync(message);
             context.Wait(MessageReceived);
             return;
         }
