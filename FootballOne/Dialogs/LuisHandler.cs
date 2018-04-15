@@ -63,7 +63,7 @@ namespace FootballOne.Dialogs
             card.Title = "Jefe";
             //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
             var misDatos = ( from yo in DB.Empleado
-                             where yo.empleadoID == 4
+                             where yo.empleadoID == 6
                              select new
                              {
                                  nombre = yo.nombre,
@@ -97,6 +97,58 @@ namespace FootballOne.Dialogs
             context.Wait(MessageReceived);
             return;
         }
+        [LuisIntent("Sublevados")]
+        public async Task NombreSublevados(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            string message = $"";
+            Models.NewStartersDBEntities DB = new Models.NewStartersDBEntities();
+            //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
+            var misDatos = (from yo in DB.Empleado
+                            where yo.empleadoID == 1
+                            select new
+                            {
+                                nombre = yo.nombre,
+                                apellido = yo.apellido,
+                                jefeId = yo.jefeInmediatoID,
+                                puesto = yo.puesto,
+                                sede = yo.sede,
+                                departamentoID = yo.departamento,
+                                foto = yo.fotoURL,
+                                jerarquia = yo.jerarquia,
+                                empleadoID = yo.empleadoID
+                            }
+                ).ToList();
+            int id = (int)misDatos[0].empleadoID;
+            System.Diagnostics.Debug.WriteLine($"id: {id}");
+            var datosEmpleados = (from empleado in DB.Empleado
+                             where empleado.jefeInmediatoID == id
+                             select new
+                             {
+                                 nombre = empleado.nombre,
+                                 apellido = empleado.apellido,
+                                 sede = empleado.sede,
+                                 idPrueba = empleado.empleadoID
+                             }
+                ).ToList();
+            for(int i = 0; i<datosEmpleados.Count; i++)
+            {
+                if (i == 0)
+                {
+                    message += $"Tus empleados son:  \n " +
+                    $"{datosEmpleados[i].nombre} {datosEmpleados[i].apellido}  \n";
+                }
+                else
+                {
+                    message += $"{datosEmpleados[i].nombre} {datosEmpleados[i].apellido}  \n";
+                }
+                
+            }
+            
+            await context.PostAsync(message);
+            context.Wait(MessageReceived);
+            return;
+        }
+
         /*************************************
             * Métodos para el manejo y filtro de entities
             * **********************************/
