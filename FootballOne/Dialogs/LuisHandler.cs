@@ -60,32 +60,32 @@ namespace FootballOne.Dialogs
             List<CardImage> cardImages = new List<CardImage>();
             card.Title = "Jefe";
             //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
-            var misDatos = ( from yo in DB.Empleado
-                             where yo.empleadoID == 6
-                             select new
-                             {
-                                 nombre = yo.nombre,
-                                 apellido = yo.apellido,
-                                 jefeId = yo.jefeInmediatoID,
-                                 puesto = yo.puesto,
-                                 sede = yo.sede,
-                                 departamentoID = yo .departamento,
-                                 foto = yo.fotoURL,
-                                 jerarquia = yo.jerarquia
-                             }
+            var misDatos = (from yo in DB.Empleado
+                            where yo.empleadoID == 6
+                            select new
+                            {
+                                nombre = yo.nombre,
+                                apellido = yo.apellido,
+                                jefeId = yo.jefeInmediatoID,
+                                puesto = yo.puesto,
+                                sede = yo.sede,
+                                departamentoID = yo.departamento,
+                                foto = yo.fotoURL,
+                                jerarquia = yo.jerarquia
+                            }
                 ).ToList();
             int id = (int)misDatos[0].jefeId;
-            var datosJefe = ( from jefe in DB.Empleado
-                          where jefe.empleadoID == id
-                          select new
-                          {
-                              nombre = jefe.nombre,
-                              apellido = jefe.apellido,
-                              sede = jefe.sede,
-                              foto = jefe.fotoURL,
-                              tel = jefe.numero,
-                              mail = jefe.mail
-                          }
+            var datosJefe = (from jefe in DB.Empleado
+                             where jefe.empleadoID == id
+                             select new
+                             {
+                                 nombre = jefe.nombre,
+                                 apellido = jefe.apellido,
+                                 sede = jefe.sede,
+                                 foto = jefe.fotoURL,
+                                 tel = jefe.numero,
+                                 mail = jefe.mail
+                             }
                 ).ToList();
             cardImages.Add(new CardImage(datosJefe[0].foto));
             card.Images = cardImages;
@@ -104,7 +104,7 @@ namespace FootballOne.Dialogs
                              select s.direccion).ToList();
             CardAction mapButton = new CardAction()
             {
-                Value = $"https://www.google.com.mx/maps/place/" + $"{ubicacion[0].Replace(" ","+")}",
+                Value = $"https://www.google.com.mx/maps/place/" + $"{ubicacion[0].Replace(" ", "+")}",
                 Type = "openUrl",
                 Title = "Ir a sede"
             };
@@ -142,17 +142,17 @@ namespace FootballOne.Dialogs
             int id = (int)misDatos[0].empleadoID;
             System.Diagnostics.Debug.WriteLine($"id: {id}");
             var datosEmpleados = (from empleado in DB.Empleado
-                             where empleado.jefeInmediatoID == id
-                             select new
-                             {
-                                 nombre = empleado.nombre,
-                                 apellido = empleado.apellido,
-                                 sede = empleado.sede,
-                                 idPrueba = empleado.empleadoID,
-                                 foto = empleado.fotoURL,
-                                 tel = empleado.numero,
-                                 mail = empleado.mail
-                             }
+                                  where empleado.jefeInmediatoID == id
+                                  select new
+                                  {
+                                      nombre = empleado.nombre,
+                                      apellido = empleado.apellido,
+                                      sede = empleado.sede,
+                                      idPrueba = empleado.empleadoID,
+                                      foto = empleado.fotoURL,
+                                      tel = empleado.numero,
+                                      mail = empleado.mail
+                                  }
                 ).ToList();
             if (datosEmpleados.Count() == 0)
             {
@@ -205,8 +205,8 @@ namespace FootballOne.Dialogs
                     await context.PostAsync(reply);
                 }
             }
-            
-            
+
+
             await context.PostAsync(message);
             context.Wait(MessageReceived);
             return;
@@ -245,7 +245,7 @@ namespace FootballOne.Dialogs
         [LuisIntent("TI")]
         public async Task TI(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
-            
+
             Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
             //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
             var misDatos = (from dept in DB.Empleado_Departamento
@@ -317,16 +317,16 @@ namespace FootballOne.Dialogs
             await context.PostAsync(reply);
             int id2 = (int)misDatos[0].representate;
             var datosRep = (from representante in DB.Empleado
-                             where representante.empleadoID == id
-                             select new
-                             {
-                                 nombre = representante.nombre,
-                                 apellido = representante.apellido,
-                                 sede = representante.sede,
-                                 foto = representante.fotoURL,
-                                 tel = representante.numero,
-                                 mail = representante.mail
-                             }
+                            where representante.empleadoID == id
+                            select new
+                            {
+                                nombre = representante.nombre,
+                                apellido = representante.apellido,
+                                sede = representante.sede,
+                                foto = representante.fotoURL,
+                                tel = representante.numero,
+                                mail = representante.mail
+                            }
                 ).ToList();
             /*List<CardImage> cardImages2 = new List<CardImage>();
             HeroCard card2 = new HeroCard();
@@ -347,7 +347,7 @@ namespace FootballOne.Dialogs
         [LuisIntent("Administracion")]
         public async Task Administracion(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
-           
+
             Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
             //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
             var misDatos = (from dept in DB.Empleado_Departamento
@@ -384,7 +384,7 @@ namespace FootballOne.Dialogs
                                  mail = jefe.mail
                              }
                 ).ToList();
-            
+
             int id2 = (int)misDatos[0].representate;
             var datosRep = (from representante in DB.Empleado
                             where representante.empleadoID == id
@@ -434,7 +434,7 @@ namespace FootballOne.Dialogs
         [LuisIntent("Finanzas")]
         public async Task Finanazas(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
-            
+
             Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
             //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
             var misDatos = (from dept in DB.Empleado_Departamento
@@ -534,11 +534,11 @@ namespace FootballOne.Dialogs
 
             int id3 = (int)misDatos[0].dept;
             var datosJefe3 = (from depto in DB.Departamento
-                             where depto.departamentoID == id3
-                             select new
-                             {
-                                 ubicacion = depto.ubicacion
-                             }
+                              where depto.departamentoID == id3
+                              select new
+                              {
+                                  ubicacion = depto.ubicacion
+                              }
                 ).ToList();
             string message = $"El departamento de Mercadotecnia se encuentra en {datosJefe3[0].ubicacion} y el contacto es:";
             await context.PostAsync(message);
@@ -616,7 +616,7 @@ namespace FootballOne.Dialogs
                                 apellido = compas.apellido,
                                 numero = compas.numero,
                                 puesto = compas.puesto,
-                                mail = compas.mail, 
+                                mail = compas.mail,
                                 foto = compas.fotoURL,
                                 tel = compas.numero,
                                 sede = compas.sede
@@ -626,7 +626,8 @@ namespace FootballOne.Dialogs
             string message = $"Tus compañeros de trabajo de tu jerarquia son:";
             await context.PostAsync(message);
 
-            foreach (var item in misDatos){
+            foreach (var item in misDatos)
+            {
                 if (!item.nombre.Equals("Bruno"))
                 {
                     List<CardImage> cardImages = new List<CardImage>();
@@ -662,7 +663,7 @@ namespace FootballOne.Dialogs
                     reply.Attachments.Add(att);
                     await context.PostAsync(reply);
                 }
-                
+
             }
             context.Wait(MessageReceived);
             return;
@@ -672,8 +673,8 @@ namespace FootballOne.Dialogs
         public async Task Creadores(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
             string message = $"Fui desarrollado en el HackMX2018 hecho en el Tecnológico de Monterrey Campus Santa Fe por los alumnos del Campus Ciudad de México: Angel Cueto, Carlos Balcazar, Ivan Hidalgo y Luis Juan";
-            
-            
+
+
             List<CardImage> cardImages = new List<CardImage>();
             HeroCard card = new HeroCard();
             card.Title = "Desarrolladores";
@@ -696,7 +697,7 @@ namespace FootballOne.Dialogs
         public async Task CuantoCuestaItent(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
             string toSearch = "";
-            toSearch = result.Query.ToString().ToLower().Replace("cuanto cuesta una ", "").Replace("cuanto cuesta un ", "").Replace("?","").Replace(" ","-");
+            toSearch = result.Query.ToString().ToLower().Replace("cuanto cuesta una ", "").Replace("cuanto cuesta un ", "").Replace("?", "").Replace(" ", "-");
             try
             {
                 System.Diagnostics.Debug.WriteLine("https://listado.mercadolibre.com.mx/" + toSearch);
@@ -732,7 +733,7 @@ namespace FootballOne.Dialogs
                 await context.PostAsync(reply);
                 return;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 System.Diagnostics.Debug.WriteLine("https://listado.mercadolibre.com.mx/" + toSearch);
                 HtmlAgilityPack.HtmlWeb web = new HtmlAgilityPack.HtmlWeb();
@@ -745,7 +746,7 @@ namespace FootballOne.Dialogs
                 int index = rn.Next(0, images.Count);
                 List<CardImage> cardImages = new List<CardImage>();
                 HeroCard card = new HeroCard();
-                card.Title = $"{toSearch.Replace("-"," ")}";
+                card.Title = $"{toSearch.Replace("-", " ")}";
                 card.Text = $"Precio: {prices[index].InnerText}";
                 cardImages.Add(new CardImage(images[index].GetAttributeValue("src", null)));
                 card.Images = cardImages;
@@ -771,77 +772,6 @@ namespace FootballOne.Dialogs
             string message = $"Puedo enseñarte quienes son los representantes de cada área y en que lugares se encuentran de cierta sede, puedo mostrarte tu jefe inmediato y tus compañeros de trabajo y mostrarte quienes son las personas a tu cargo. También puedo llamar a tus jefes o subordinados y mostrarte tu ubicación en el mapa, mostrarte como luce una herramienta si me preguntas de la forma \"Como se ve un taladro electrico\" y también realizarte contestaciones si me preguntas de la forma \"Cuanto cuesta una pinza para cables\". ¿Con qué te puedo ayudar hoy?";
             await context.PostAsync(message);
             return;
-        }
-
-        /*************************************
-            * Métodos para el manejo y filtro de entities
-            * **********************************/
-        List<String> GetFilteredEntities(LuisResult result, string entityType)
-        {
-            List<String> res = new List<string>();
-            for (int i = 0; i < result.Entities.Count; i++)
-            {
-                EntityRecommendation current = result.Entities[i];
-                if (current.Type == entityType)
-                { 
-                    res.Add(((List<object>)current.Resolution["values"])[0].ToString());//Esto regresa el valor original en lugar del sinónimo
-                }
-            }
-            return res;
-        }
-        String ExtractEntities(LuisResult result, string entityType)
-        {
-            result.TryFindEntity(entityType, out entityRec);
-            if (entityRec != null)
-            {
-                return entityRec.Entity;
-            }
-            else
-            {
-                return "notFound";
-            }
-        }
-    }
-    /**********************
-     * Manejo de forms
-     * ********************/
-    public enum GroupOptions
-    {
-        [Describe("Grupo A")]
-        [Terms("A")]
-        GrupoA = 1,
-        [Describe("Grupo B")]
-        GrupoB = 2,
-        [Describe("Grupo C")]
-        GrupoC,
-        [Describe("Grupo D")]
-        GrupoD,
-        [Describe("Grupo E")]
-        GrupoE,
-        [Describe("Grupo F")]
-        GrupoF,
-        [Describe("Grupo G")]
-        GrupoG,
-        [Describe("Grupo H")]
-        GrupoH
-    };
-    [Serializable]
-    public class InfoGroup
-    {
-        public GroupOptions? grupo;
-
-        public static IForm<InfoGroup> BuildForm()
-        {
-            var form = new FormBuilder<InfoGroup>()
-                    .Message("¿De qué grupo quieres saber?")
-                    .AddRemainingFields();
-            List<string> quitCommands = new List<string>();
-            quitCommands.Add("Salir");
-            quitCommands.Add("Cancelar");
-            quitCommands.Add("No");
-            quitCommands.Add("Quiero salir");
-            form.Configuration.Commands[FormCommand.Quit].Terms = quitCommands.ToArray();
-            return form.Build();
         }
     }
 }
