@@ -180,13 +180,22 @@ namespace FootballOne.Dialogs
             context.Wait(MessageReceived);
             return;
         }
+        [LuisIntent("ComoEstas")]
+        public async Task ComoEstas(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            string message = $"";
+            message += "Yo estoy muy bien, ¿tú que tal?";
+            await context.PostAsync(message);
+            context.Wait(MessageReceived);
+            return;
+        }
 
 
 
-        /*************************************
-            * Métodos para el manejo y filtro de entities
-            * **********************************/
-        List<String> GetFilteredEntities(LuisResult result, string entityType)
+            /*************************************
+                * Métodos para el manejo y filtro de entities
+                * **********************************/
+            List<String> GetFilteredEntities(LuisResult result, string entityType)
         {
             List<String> res = new List<string>();
             for (int i = 0; i < result.Entities.Count; i++)
