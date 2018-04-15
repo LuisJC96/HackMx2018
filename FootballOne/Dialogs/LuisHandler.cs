@@ -235,12 +235,57 @@ namespace FootballOne.Dialogs
             return;
         }
 
+        [LuisIntent("Administracion")]
+        public async Task Administracion(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            string message = $"";
+            Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
+            //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
+            var misDatos = (from dept in DB.Empleado_Departamento
+                            where dept.departamentoID == 4
+                            select new
+                            {
+                                representate = dept.representanteID,
+                                jefe = dept.jefeID,
+                                dept = dept.departamentoID
+                            }
+                ).ToList();
+            int id = (int)misDatos[0].jefe;
+            var datosJefe = (from jefe in DB.Empleado
+                             where jefe.empleadoID == id
+                             select new
+                             {
+                                 nombre = jefe.nombre,
+                                 apellido = jefe.apellido,
+                                 sede = jefe.sede
+                             }
+                ).ToList();
+
+            message += $"El jefe del area de Administracion es {datosJefe[0].nombre} {datosJefe[0].apellido}\n";
+            await context.PostAsync(message);
+            int id2 = (int)misDatos[0].representate;
+            var datosRep = (from representante in DB.Empleado
+                            where representante.empleadoID == id
+                            select new
+                            {
+                                nombre = representante.nombre,
+                                apellido = representante.apellido,
+                                sede = representante.sede
+                            }
+                ).ToList();
+            message = $"El representante del area de Administracion es {datosRep[0].nombre} {datosRep[0].apellido}";
+
+            await context.PostAsync(message);
+            context.Wait(MessageReceived);
+            return;
+        }
 
 
-            /*************************************
-                * Métodos para el manejo y filtro de entities
-                * **********************************/
-            List<String> GetFilteredEntities(LuisResult result, string entityType)
+
+        /*************************************
+            * Métodos para el manejo y filtro de entities
+            * **********************************/
+        List<String> GetFilteredEntities(LuisResult result, string entityType)
         {
             List<String> res = new List<string>();
             for (int i = 0; i < result.Entities.Count; i++)
