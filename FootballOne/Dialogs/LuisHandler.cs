@@ -56,6 +56,11 @@ namespace FootballOne.Dialogs
         {
             string message = $"";
             Models.NewStartersDBEntities DB = new Models.NewStartersDBEntities();
+            HeroCard card = new HeroCard();
+            List<CardImage> cardImages = new List<CardImage>();
+            cardImages.Add(new CardImage("http://www.creativefan.com/important/cf/2012/10/black-men-hairstyles/any-way.jpg"));
+            card.Images = cardImages;
+            card.Title = "Jefe";
             //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
             var misDatos = ( from yo in DB.Empleado
                              where yo.empleadoID == 4
@@ -81,7 +86,13 @@ namespace FootballOne.Dialogs
                               sede = jefe.sede
                           }
                 ).ToList();
-            message += $"Tu jefe inmediato es {datosJefe[0].nombre} {datosJefe[0].apellido}";
+            message += $"Tu jefe es {datosJefe[0].nombre} {datosJefe[0].apellido}";
+            card.Subtitle = $"{datosJefe[0].nombre} {datosJefe[0].apellido}";
+            card.Text = $"Tu jefe es {datosJefe[0].nombre}";
+            Attachment att = card.ToAttachment();
+            IMessageActivity reply = context.MakeMessage();
+            reply.Attachments.Add(att);
+            await context.PostAsync(reply);
             await context.PostAsync(message);
             context.Wait(MessageReceived);
             return;
