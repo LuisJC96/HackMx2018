@@ -58,8 +58,6 @@ namespace FootballOne.Dialogs
             Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
             HeroCard card = new HeroCard();
             List<CardImage> cardImages = new List<CardImage>();
-            cardImages.Add(new CardImage("http://www.creativefan.com/important/cf/2012/10/black-men-hairstyles/any-way.jpg"));
-            card.Images = cardImages;
             card.Title = "Jefe";
             //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
             var misDatos = ( from yo in DB.Empleado
@@ -83,9 +81,12 @@ namespace FootballOne.Dialogs
                           {
                               nombre = jefe.nombre,
                               apellido = jefe.apellido,
-                              sede = jefe.sede
+                              sede = jefe.sede,
+                              foto = jefe.fotoURL
                           }
                 ).ToList();
+            cardImages.Add(new CardImage(datosJefe[0].foto));
+            card.Images = cardImages;
             message += $"Tu jefe es {datosJefe[0].nombre} {datosJefe[0].apellido}";
             card.Subtitle = $"{datosJefe[0].nombre} {datosJefe[0].apellido}";
             card.Text = $"Tu jefe es {datosJefe[0].nombre}";
@@ -127,7 +128,10 @@ namespace FootballOne.Dialogs
                                  nombre = empleado.nombre,
                                  apellido = empleado.apellido,
                                  sede = empleado.sede,
-                                 idPrueba = empleado.empleadoID
+                                 idPrueba = empleado.empleadoID,
+                                 foto = empleado.fotoURL,
+                                 tel = empleado.numero,
+                                 mail = empleado.mail
                              }
                 ).ToList();
             if (datosEmpleados.Count() == 0)
@@ -143,14 +147,22 @@ namespace FootballOne.Dialogs
                 {
                     if (i == 0)
                     {
-                        message += $"Tus empleados son:  \n " +
-                        $"{datosEmpleados[i].nombre} {datosEmpleados[i].apellido}  \n";
-                    }
-                    else
-                    {
-                        message += $"{datosEmpleados[i].nombre} {datosEmpleados[i].apellido}  \n";
-                    }
+                        message += $"Tus empleados son: ";
+                        await context.PostAsync(message);
 
+                    }
+                    List<CardImage> cardImages = new List<CardImage>();
+                    HeroCard card = new HeroCard();
+                    card.Title = $"{datosEmpleados[i].nombre} {datosEmpleados[i].apellido}";
+                    card.Subtitle = "Datos de contacto:";
+                    card.Text = $"Teléfono: {datosEmpleados[i].tel}  \n";
+                    card.Text += $"Correo: {datosEmpleados[i].mail}";
+                    cardImages.Add(new CardImage(datosEmpleados[i].foto));
+                    card.Images = cardImages;
+                    Attachment att = card.ToAttachment();
+                    IMessageActivity reply = context.MakeMessage();
+                    reply.Attachments.Add(att);
+                    await context.PostAsync(reply);
                 }
             }
             
@@ -212,12 +224,25 @@ namespace FootballOne.Dialogs
                              {
                                  nombre = jefe.nombre,
                                  apellido = jefe.apellido,
-                                 sede = jefe.sede
+                                 sede = jefe.sede,
+                                 foto = jefe.fotoURL,
+                                 mail = jefe.mail,
+                                 tel = jefe.numero
                              }
                 ).ToList();
-            
-            message += $"El jefe del area de TI es {datosJefe[0].nombre} {datosJefe[0].apellido}\n";
-            await context.PostAsync(message);
+
+            List<CardImage> cardImages = new List<CardImage>();
+            HeroCard card = new HeroCard();
+            card.Title = $"{datosJefe[0].nombre} {datosJefe[0].apellido}";
+            card.Subtitle = "Datos de contacto:";
+            card.Text = $"Teléfono: {datosJefe[0].tel}  \n";
+            card.Text += $"Correo: {datosJefe[0].mail}";
+            cardImages.Add(new CardImage(datosJefe[0].foto));
+            card.Images = cardImages;
+            Attachment att = card.ToAttachment();
+            IMessageActivity reply = context.MakeMessage();
+            reply.Attachments.Add(att);
+            await context.PostAsync(reply);
             int id2 = (int)misDatos[0].representate;
             var datosRep = (from representante in DB.Empleado
                              where representante.empleadoID == id
@@ -225,13 +250,25 @@ namespace FootballOne.Dialogs
                              {
                                  nombre = representante.nombre,
                                  apellido = representante.apellido,
-                                 sede = representante.sede
+                                 sede = representante.sede,
+                                 foto = representante.fotoURL,
+                                 tel = representante.numero,
+                                 mail = representante.mail
                              }
                 ).ToList();
-            message = $"El representante del area de TI es {datosRep[0].nombre} {datosRep[0].apellido}";
-
-            await context.PostAsync(message);
-            context.Wait(MessageReceived);
+            /*List<CardImage> cardImages2 = new List<CardImage>();
+            HeroCard card2 = new HeroCard();
+            card2.Title = $"{datosRep[0].nombre} {datosRep[0].apellido}";
+            card2.Subtitle = "Datos de contacto:";
+            card2.Text = $"Teléfono: {datosRep[0].tel}  \n";
+            card2.Text += $"Correo: {datosRep[0].mail}";
+            cardImages2.Add(new CardImage(datosRep[0].foto));
+            card2.Images = cardImages;
+            Attachment att2 = card2.ToAttachment();
+            IMessageActivity reply2 = context.MakeMessage();
+            reply2.Attachments.Add(att2);
+            await context.PostAsync(reply2);
+            context.Wait(MessageReceived);*/
             return;
         }
 
@@ -257,11 +294,12 @@ namespace FootballOne.Dialogs
                              {
                                  nombre = jefe.nombre,
                                  apellido = jefe.apellido,
-                                 sede = jefe.sede
+                                 sede = jefe.sede,
+                                 foto = jefe.fotoURL,
+                                 tel = jefe.numero,
+                                 mail = jefe.mail
                              }
                 ).ToList();
-
-            message += $"El jefe del area de Administracion es {datosJefe[0].nombre} {datosJefe[0].apellido}\n";
             await context.PostAsync(message);
             int id2 = (int)misDatos[0].representate;
             var datosRep = (from representante in DB.Empleado
@@ -273,9 +311,18 @@ namespace FootballOne.Dialogs
                                 sede = representante.sede
                             }
                 ).ToList();
-            message = $"El representante del area de Administracion es {datosRep[0].nombre} {datosRep[0].apellido}";
-
-            await context.PostAsync(message);
+            List<CardImage> cardImages = new List<CardImage>();
+            HeroCard card = new HeroCard();
+            card.Title = $"{datosJefe[0].nombre} {datosJefe[0].apellido}";
+            card.Subtitle = "Jefe del departamento de administración";
+            card.Text = $"Teléfono: {datosJefe[0].tel}  \n";
+            card.Text += $"Correo: {datosJefe[0].mail}";
+            cardImages.Add(new CardImage(datosJefe[0].foto));
+            card.Images = cardImages;
+            Attachment att = card.ToAttachment();
+            IMessageActivity reply = context.MakeMessage();
+            reply.Attachments.Add(att);
+            await context.PostAsync(reply);
             context.Wait(MessageReceived);
             return;
         }
@@ -302,7 +349,10 @@ namespace FootballOne.Dialogs
                              {
                                  nombre = jefe.nombre,
                                  apellido = jefe.apellido,
-                                 sede = jefe.sede
+                                 sede = jefe.sede,
+                                 foto = jefe.fotoURL,
+                                 mail = jefe.mail,
+                                 tel = jefe.numero
                              }
                 ).ToList();
 
@@ -318,8 +368,18 @@ namespace FootballOne.Dialogs
                                 sede = representante.sede
                             }
                 ).ToList();
-            message = $"El representante del area de Finanzas es {datosRep[0].nombre} {datosRep[0].apellido}";
-
+            List<CardImage> cardImages = new List<CardImage>();
+            HeroCard card = new HeroCard();
+            card.Title = $"{datosJefe[0].nombre} {datosJefe[0].apellido}";
+            card.Subtitle = "Jefe del departamento de finanzas";
+            card.Text = $"Teléfono: {datosJefe[0].tel}  \n";
+            card.Text += $"Correo: {datosJefe[0].mail}";
+            cardImages.Add(new CardImage(datosJefe[0].foto));
+            card.Images = cardImages;
+            Attachment att = card.ToAttachment();
+            IMessageActivity reply = context.MakeMessage();
+            reply.Attachments.Add(att);
+            await context.PostAsync(reply);
             await context.PostAsync(message);
             context.Wait(MessageReceived);
             return;
