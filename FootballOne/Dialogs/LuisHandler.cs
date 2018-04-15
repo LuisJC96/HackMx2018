@@ -22,7 +22,9 @@ namespace FootballOne.Dialogs
     [Serializable]
     [LuisModel(
         modelID: "1d72cab2-9168-4601-bcd3-cdd2005e3885",
-        subscriptionKey: "a46b97fa8dfc4101b767186ee5e3da34")]
+        subscriptionKey: "4ecdb5b07513435796578ae6d5217f06",
+        apiVersion: LuisApiVersion.V2,
+        domain: "southcentralus.api.cognitive.microsoft.com")]
 
     public class LuisHandler : LuisDialog<object>
     {
@@ -30,7 +32,6 @@ namespace FootballOne.Dialogs
          * Métodos para el manejo de intents
          * **********************************/
         private EntityRecommendation entityRec;
-
         //Intent no reconocido
         [LuisIntent("None")]
         public async Task NoneIntent(IDialogContext context, IAwaitable<object> activity, LuisResult result)
@@ -55,7 +56,6 @@ namespace FootballOne.Dialogs
         {
             string message = $"";
             Models.NewStartersDBEntities DB = new Models.NewStartersDBEntities();
-            await context.PostAsync(message);
             //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
             var misDatos = ( from yo in DB.Empleado
                              where yo.empleadoID == 4
