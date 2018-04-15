@@ -483,10 +483,54 @@ namespace FootballOne.Dialogs
             return;
         }
 
-        /*************************************
-            * Métodos para el manejo y filtro de entities
-            * **********************************/
-        List<String> GetFilteredEntities(LuisResult result, string entityType)
+        [LuisIntent("NombresCompas")]
+        public async Task NombresCompas(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
+            //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
+            var misDatos = (from compas in DB.Empleado
+                            where compas.jefeInmediatoID == 4
+                            select new
+                            {
+                                nombre = compas.nombre,
+                                apellido = compas.apellido,
+                                numero = compas.numero,
+                                puesto = compas.puesto,
+                                mail = compas.mail, 
+                                foto = compas.fotoURL
+                            }
+                ).ToList();
+
+            string message = $"Tus compañeros de trabajo de tu jerarquia son:";
+            await context.PostAsync(message);
+
+            foreach (var item in misDatos){
+                if (!item.nombre.Equals("Bruno"))
+                {
+                    List<CardImage> cardImages = new List<CardImage>();
+                    HeroCard card = new HeroCard();
+                    card.Title = $"{item.nombre} {item.apellido}";
+                    card.Subtitle = $"{item.puesto}";
+                    card.Text = $"Teléfono: {item.numero}  \n";
+                    card.Text += $"Correo: {item.mail}";
+                    cardImages.Add(new CardImage(item.foto));
+                    card.Images = cardImages;
+                    Attachment att = card.ToAttachment();
+                    IMessageActivity reply = context.MakeMessage();
+                    reply.Attachments.Add(att);
+                    await context.PostAsync(reply);
+                }
+                
+            }
+            context.Wait(MessageReceived);
+            return;
+
+        }
+
+            /*************************************
+                * Métodos para el manejo y filtro de entities
+                * **********************************/
+            List<String> GetFilteredEntities(LuisResult result, string entityType)
         {
             List<String> res = new List<string>();
             for (int i = 0; i < result.Entities.Count; i++)
