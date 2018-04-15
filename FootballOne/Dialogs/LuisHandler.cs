@@ -764,10 +764,19 @@ namespace FootballOne.Dialogs
                 await context.PostAsync(reply);
             }
         }
-            /*************************************
-                * Métodos para el manejo y filtro de entities
-                * **********************************/
-            List<String> GetFilteredEntities(LuisResult result, string entityType)
+
+        [LuisIntent("Hacer")]
+        public async Task Hacer(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            string message = $"Puedo enseñarte quienes son los representantes de cada área y en que lugares se encuentran de cierta sede, puedo mostrarte tu jefe inmediato y tus compañeros de trabajo y mostrarte quienes son las personas a tu cargo. También puedo llamar a tus jefes o subordinados y mostrarte tu ubicación en el mapa, mostrarte como luce una herramienta si me preguntas de la forma \"Como se ve un taladro electrico\" y también realizarte contestaciones si me preguntas de la forma \"Cuanto cuesta una pinza para cables\". ¿Con qué te puedo ayudar hoy?";
+            await context.PostAsync(message);
+            return;
+        }
+
+        /*************************************
+            * Métodos para el manejo y filtro de entities
+            * **********************************/
+        List<String> GetFilteredEntities(LuisResult result, string entityType)
         {
             List<String> res = new List<string>();
             for (int i = 0; i < result.Entities.Count; i++)
