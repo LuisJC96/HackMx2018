@@ -343,6 +343,9 @@
     <Compile Include="Models\Empleado.cs">
       <DependentUpon>StartersData.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Empleado_Departamento.cs">
+      <DependentUpon>StartersData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Sede.cs">
       <DependentUpon>StartersData.tt</DependentUpon>
     </Compile>

@@ -4,15 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c6dc48e6219549949053b0419e284d90" Name="Diagram1" >
-        <EntityTypeShape EntityType="NewStartersDBModel.Departamento" Width="1.5" PointX="5.25" PointY="1.75" />
-        <EntityTypeShape EntityType="NewStartersDBModel.Empleado" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="NewStartersDBModel.Sede" Width="1.5" PointX="0.75" PointY="2.125" />
-        <AssociationConnector Association="NewStartersDBModel.FK_Departamento_ToEmpleado" />
-        <AssociationConnector Association="NewStartersDBModel.FK_Departamento_ToEmpleado2" />
-        <AssociationConnector Association="NewStartersDBModel.FK_Empleado_ToDepartamento" />
-        <AssociationConnector Association="NewStartersDBModel.FK_Empleado_ToEmpleado" />
-        <AssociationConnector Association="NewStartersDBModel.FK_Empleado_ToSede" />
+      <Diagram DiagramId="a99107c95c4948febdfaba2923fee6d6" Name="Diagram1">
+        <EntityTypeShape EntityType="NewStartersDBModel.Departamento" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewStartersDBModel.Empleado" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewStartersDBModel.Empleado_Departamento" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NewStartersDBModel.Sede" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="NewStartersDBModel.FK_Empleado_Departamento_ToDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="NewStartersDBModel.FK_Empleado_ToDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="NewStartersDBModel.FK_Empleado_Departamento_ToEmpledo" ManuallyRouted="false" />
+        <AssociationConnector Association="NewStartersDBModel.FK_Empleado_Departamento_ToRepresentante" ManuallyRouted="false" />
+        <AssociationConnector Association="NewStartersDBModel.FK_Empleado_ToEmpleado" ManuallyRouted="false" />
+        <AssociationConnector Association="NewStartersDBModel.FK_Empleado_ToSede" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

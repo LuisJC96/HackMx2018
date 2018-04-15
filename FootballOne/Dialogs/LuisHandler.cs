@@ -55,7 +55,7 @@ namespace FootballOne.Dialogs
         public async Task NombreJefeInmediatoIntent(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
             string message = $"";
-            Models.NewStartersDBEntities DB = new Models.NewStartersDBEntities();
+            Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
             HeroCard card = new HeroCard();
             List<CardImage> cardImages = new List<CardImage>();
             cardImages.Add(new CardImage("http://www.creativefan.com/important/cf/2012/10/black-men-hairstyles/any-way.jpg"));
@@ -101,7 +101,7 @@ namespace FootballOne.Dialogs
         public async Task NombreSublevados(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
             string message = $"";
-            Models.NewStartersDBEntities DB = new Models.NewStartersDBEntities();
+            Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
             //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
             var misDatos = (from yo in DB.Empleado
                             where yo.empleadoID == 6
@@ -163,7 +163,7 @@ namespace FootballOne.Dialogs
         public async Task Saludar(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
             string message = $"";
-            Models.NewStartersDBEntities DB = new Models.NewStartersDBEntities();
+            Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
             message += "¡Hola!";
             await context.PostAsync(message);
             context.Wait(MessageReceived);
@@ -173,7 +173,7 @@ namespace FootballOne.Dialogs
         public async Task QuienEres(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
             string message = $"";
-            Models.NewStartersDBEntities DB = new Models.NewStartersDBEntities();
+            Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
             message += "Hola, soy New Starter, soy un asistente que te permite ponerte al corriente " +
                 "con la empresa, preguntame lo que necesites";
             await context.PostAsync(message);
@@ -185,6 +185,51 @@ namespace FootballOne.Dialogs
         {
             string message = $"";
             message += "Yo estoy muy bien, ¿tú que tal?";
+            await context.PostAsync(message);
+            context.Wait(MessageReceived);
+            return;
+        }
+
+        [LuisIntent("TI")]
+        public async Task TI(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            string message = $"";
+            Models.NewStartersDBEntities1 DB = new Models.NewStartersDBEntities1();
+            //Mis datos es literalmente todo lo de mi mismo (Bruno) se accede de la forma misDatos[0].foto
+            var misDatos = (from dept in DB.Empleado_Departamento
+                            where dept.departamentoID == 3
+                            select new
+                            {
+                                representate = dept.representanteID,
+                                jefe = dept.jefeID,
+                                dept = dept.departamentoID
+                            }
+                ).ToList();
+            int id = (int)misDatos[0].jefe;
+            var datosJefe = (from jefe in DB.Empleado
+                             where jefe.empleadoID == id
+                             select new
+                             {
+                                 nombre = jefe.nombre,
+                                 apellido = jefe.apellido,
+                                 sede = jefe.sede
+                             }
+                ).ToList();
+            
+            message += $"El jefe del area de TI es {datosJefe[0].nombre} {datosJefe[0].apellido}\n";
+            await context.PostAsync(message);
+            int id2 = (int)misDatos[0].representate;
+            var datosRep = (from representante in DB.Empleado
+                             where representante.empleadoID == id
+                             select new
+                             {
+                                 nombre = representante.nombre,
+                                 apellido = representante.apellido,
+                                 sede = representante.sede
+                             }
+                ).ToList();
+            message = $"El representante del area de TI es {datosRep[0].nombre} {datosRep[0].apellido}";
+
             await context.PostAsync(message);
             context.Wait(MessageReceived);
             return;
