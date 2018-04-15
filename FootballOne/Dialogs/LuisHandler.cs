@@ -526,6 +526,25 @@ namespace FootballOne.Dialogs
             return;
 
         }
+        [LuisIntent("Creadores")]
+        public async Task Creadores(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            string message = $"Fui desarrollado en el HackMX2018 hecho en el Tecnológico de Monterrey Campus Santa Fe por los alumnos del Campus Ciudad de México: Angel Cueto, Carlos Balcazar, Ivan Hidalgo y Luis Juan";
+            
+            
+            List<CardImage> cardImages = new List<CardImage>();
+            HeroCard card = new HeroCard();
+            card.Title = "Desarrolladores";
+            card.Text = message;
+            cardImages.Add(new CardImage("https://scontent.fntr4-1.fna.fbcdn.net/v/t1.0-9/30713726_1376400365838902_6490132807631765504_o.jpg?_nc_cat=0&_nc_eui2=v1%3AAeEhZ_2dON5xLa9ZTN8-W1OfnD8zDVhTsH5b-e_2StI07VYC5pd21SdyuzqLO_2EsWOYLdK4pRg6lcm_CokB541tQ637kYR4n9-FaeegASV4Gg&oh=57974331bcbef2a48ac3ee7e45b02616&oe=5B6DD439"));
+            card.Images = cardImages;
+            Attachment att = card.ToAttachment();
+            IMessageActivity reply = context.MakeMessage();
+            reply.Attachments.Add(att);
+            await context.PostAsync(reply);
+            context.Wait(MessageReceived);
+            return;
+        }
 
             /*************************************
                 * Métodos para el manejo y filtro de entities
