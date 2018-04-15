@@ -690,8 +690,79 @@ namespace FootballOne.Dialogs
         [LuisIntent("ComoSeVe")]
         public async Task ComoSeVeItent(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
-            
             return;
+        }
+        [LuisIntent("CuantoCuesta")]
+        public async Task CuantoCuestaItent(IDialogContext context, IAwaitable<object> activity, LuisResult result)
+        {
+            string toSearch = "";
+            toSearch = result.Query.ToString().ToLower().Replace("cuanto cuesta una ", "").Replace("cuanto cuesta un ", "").Replace("?","").Replace(" ","-");
+            try
+            {
+                System.Diagnostics.Debug.WriteLine("https://listado.mercadolibre.com.mx/" + toSearch);
+                HtmlAgilityPack.HtmlWeb web = new HtmlAgilityPack.HtmlWeb();
+                HtmlAgilityPack.HtmlDocument doc = web.Load("https://listado.mercadolibre.com.mx/" + toSearch);
+                var titles = doc.DocumentNode.SelectNodes("//div[@class='item__info-container ']/div/h2/a").ToList();
+                var prices = doc.DocumentNode.SelectNodes("//div[@class='item__info-container ']/div/div[@class='price__container']").ToList();
+                var images = doc.DocumentNode.SelectNodes("//a[@class='figure item-image item__js-link']/img[@src]").ToList();
+                var links = doc.DocumentNode.SelectNodes("//div[@class='image-content']/a[@href]").ToList();
+                var locations = doc.DocumentNode.SelectNodes("//div[@class='item__condition']").ToList();
+                await context.PostAsync("Encontré algo para ti, espero que sea de utilidad **:)**");
+                Random rn = new Random();
+                int index = rn.Next(0, images.Count);
+                List<CardImage> cardImages = new List<CardImage>();
+                HeroCard card = new HeroCard();
+                card.Title = $"{titles[index].InnerText}";
+                card.Subtitle = $"Disponible en{locations[index].InnerText.Split('-')[1]}";
+                card.Text = $"Precio: {prices[index].InnerText}";
+                cardImages.Add(new CardImage(images[index].GetAttributeValue("src", null)));
+                card.Images = cardImages;
+                List<CardAction> cardButtons = new List<CardAction>();
+                CardAction buyButton = new CardAction()
+                {
+                    Value = $"{links[index].GetAttributeValue("href", null)}",
+                    Type = "openUrl",
+                    Title = "Revisar producto"
+                };
+                cardButtons.Add(buyButton);
+                card.Buttons = cardButtons;
+                Attachment att = card.ToAttachment();
+                IMessageActivity reply = context.MakeMessage();
+                reply.Attachments.Add(att);
+                await context.PostAsync(reply);
+                return;
+            }
+            catch(Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("https://listado.mercadolibre.com.mx/" + toSearch);
+                HtmlAgilityPack.HtmlWeb web = new HtmlAgilityPack.HtmlWeb();
+                HtmlAgilityPack.HtmlDocument doc = web.Load("https://listado.mercadolibre.com.mx/" + toSearch);
+                var prices = doc.DocumentNode.SelectNodes("//div[@class='item__price ']").ToList();
+                var images = doc.DocumentNode.SelectNodes("//a[@class='item-link item__js-link']/img[@src]").ToList();
+                var links = doc.DocumentNode.SelectNodes("//div[@class='carousel']/ul/li/a[@href]").ToList();
+                await context.PostAsync("Encontré algo para ti, espero que sea de utilidad **:)**");
+                Random rn = new Random();
+                int index = rn.Next(0, images.Count);
+                List<CardImage> cardImages = new List<CardImage>();
+                HeroCard card = new HeroCard();
+                card.Title = $"{toSearch.Replace("-"," ")}";
+                card.Text = $"Precio: {prices[index].InnerText}";
+                cardImages.Add(new CardImage(images[index].GetAttributeValue("src", null)));
+                card.Images = cardImages;
+                List<CardAction> cardButtons = new List<CardAction>();
+                CardAction buyButton = new CardAction()
+                {
+                    Value = $"{links[index].GetAttributeValue("href", null)}",
+                    Type = "openUrl",
+                    Title = "Revisar producto"
+                };
+                cardButtons.Add(buyButton);
+                card.Buttons = cardButtons;
+                Attachment att = card.ToAttachment();
+                IMessageActivity reply = context.MakeMessage();
+                reply.Attachments.Add(att);
+                await context.PostAsync(reply);
+            }
         }
             /*************************************
                 * Métodos para el manejo y filtro de entities
