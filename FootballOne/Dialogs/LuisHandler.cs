@@ -37,7 +37,7 @@ namespace FootballOne.Dialogs
         public async Task NoneIntent(IDialogContext context, IAwaitable<object> activity, LuisResult result)
         {
             var act = await activity as Activity;
-            string message = $"Perdón no entendí qué quisiste decir con {act.Text}, todavía estoy aprendiendo pero me puedes preguntar sobre los grupos, estadios o fechas de partidos";
+            string message = $"Perdón no entendí qué quisiste decir con {act.Text}, todavía estoy aprendiendo pero me puedes preguntar qué puedo hacer";
             await context.PostAsync(message);
             context.Wait(MessageReceived);
             return;
