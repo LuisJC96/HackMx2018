@@ -234,7 +234,7 @@ namespace FootballOne.Dialogs
             List<CardImage> cardImages = new List<CardImage>();
             HeroCard card = new HeroCard();
             card.Title = $"{datosJefe[0].nombre} {datosJefe[0].apellido}";
-            card.Subtitle = "Datos de contacto:";
+            card.Subtitle = "Jefe del departamento de TI";
             card.Text = $"Teléfono: {datosJefe[0].tel}  \n";
             card.Text += $"Correo: {datosJefe[0].mail}";
             cardImages.Add(new CardImage(datosJefe[0].foto));
